@@ -10,6 +10,7 @@ import java.util.Date;
 
 @Data
 public class ProjectDto {
+    private Long id;
     @NotBlank(message = "Project name is required")
     private String projectName;
     @NotBlank(message ="Project Identifier is required")
