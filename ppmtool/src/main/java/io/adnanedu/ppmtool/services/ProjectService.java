@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanMap;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class ProjectService {
     @Autowired
@@ -31,5 +34,15 @@ public class ProjectService {
         ProjectDto projectDto = new ProjectDto();
         BeanUtils.copyProperties(project, projectDto);
         return projectDto;
+    }
+    public Iterable<ProjectDto> findAllProjects(){
+        Iterable<Project> projects = projectRepository.findAll();
+        List<ProjectDto> projectDtoList = new ArrayList<>();
+        for(Project project: projects){
+            ProjectDto projectDto = new ProjectDto();
+            BeanUtils.copyProperties(project, projectDto);
+            projectDtoList.add(projectDto);
+        }
+        return projectDtoList;
     }
 }
