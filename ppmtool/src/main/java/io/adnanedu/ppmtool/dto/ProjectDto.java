@@ -22,4 +22,8 @@ public class ProjectDto {
     private Date start_date;
     @JsonFormat(pattern = "yyyy-mm-dd")
     private Date end_date;
+    @JsonFormat(pattern = "yyyy-mm-dd")
+    private Date created_At;
+    @JsonFormat(pattern = "yyyy-mm-dd")
+    private Date updated_At;
 }

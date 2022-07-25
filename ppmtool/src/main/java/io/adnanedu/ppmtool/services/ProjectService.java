@@ -23,4 +23,13 @@ public class ProjectService {
             throw new ProjectIdException("Project ID '"+project.getProjectIdentifier().toUpperCase()+"' already exists");
         }
     }
+    public ProjectDto findProjectByIdentifier(String projectId){
+        Project project = projectRepository.findProjectByProjectIdentifier(projectId.toUpperCase());
+        if(project == null){
+            throw new ProjectIdException("Project ID '"+projectId+"' does not exist");
+        }
+        ProjectDto projectDto = new ProjectDto();
+        BeanUtils.copyProperties(project, projectDto);
+        return projectDto;
+    }
 }
