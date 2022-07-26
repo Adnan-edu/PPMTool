@@ -1,6 +1,8 @@
 package io.adnanedu.ppmtool.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.adnanedu.ppmtool.domain.Backlog;
 import lombok.Data;
 
 import javax.persistence.Column;
@@ -27,4 +29,7 @@ public class ProjectDto {
     private Date created_At;
     @JsonFormat(pattern = "yyyy-mm-dd")
     private Date updated_At;
+
+    @JsonIgnore
+    private Backlog backlog;
 }
